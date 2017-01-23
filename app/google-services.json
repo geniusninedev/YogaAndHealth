@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "529806517113",
+    "firebase_url": "https://yoga-and-health.firebaseio.com",
+    "project_id": "yoga-and-health",
+    "storage_bucket": "yoga-and-health.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529806517113:android:f16374e114de0165",
+        "android_client_info": {
+          "package_name": "com.geniusnine.android.yogaandhealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529806517113-3nld6tju7qscusrsar1i5t62q57aa43n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.geniusnine.android.yogaandhealth",
+            "certificate_hash": "55F4BF89D0F70BA18D01EDE5814E5824D57779AA"
+          }
+        },
+        {
+          "client_id": "529806517113-l0r69nvl8ln7rjjpar62krpijf1h35vh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6dPiF84lu95cJi3sAY6-HIAFILyDQI1c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529806517113-l0r69nvl8ln7rjjpar62krpijf1h35vh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
