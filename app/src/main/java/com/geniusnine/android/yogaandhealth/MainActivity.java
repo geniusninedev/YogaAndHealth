@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,6 +21,11 @@ import android.widget.Button;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
+import com.geniusnine.android.yogaandhealth.Adapters.ViewPagerAdapter;
+import com.geniusnine.android.yogaandhealth.Tabs.Community;
+import com.geniusnine.android.yogaandhealth.Tabs.Excercises;
+import com.geniusnine.android.yogaandhealth.Tabs.Home;
+import com.geniusnine.android.yogaandhealth.Tabs.ProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity
@@ -28,6 +35,16 @@ public class MainActivity extends AppCompatActivity
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListner;
 
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private int[] tabIcons = {
+            R.mipmap.ic_home_white_24dp,
+            R.drawable.excercise,
+            R.drawable.community,
+            R.mipmap.ic_account_circle_white_24dp,
+
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +52,9 @@ public class MainActivity extends AppCompatActivity
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_main);
+
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
 ////
         mAuth = FirebaseAuth.getInstance();
 
@@ -55,6 +75,11 @@ public class MainActivity extends AppCompatActivity
 
         ////
 
+
+
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -68,7 +93,32 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        setupViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
+        setupTabIcons();
     }
+
+    private void setupTabIcons() {
+
+        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
+        //tabLayout.getTabAt(4).setIcon(tabIcons[4]);
+
+    }
+
+
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new Home(), "");
+        adapter.addFrag(new Excercises(), "");
+        adapter.addFrag(new Community(), "");
+        adapter.addFrag(new ProfileActivity(), "");
+
+        viewPager.setAdapter(adapter);
+    }
+
 
     @Override
     public void onBackPressed() {
