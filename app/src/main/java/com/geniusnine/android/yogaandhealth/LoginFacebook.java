@@ -99,6 +99,7 @@ public class LoginFacebook extends AppCompatActivity {
                     loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(loginIntent);
                     Toast.makeText(LoginFacebook.this, "User logged in.", Toast.LENGTH_LONG).show();
+                    finish();
                 }
             }
         });

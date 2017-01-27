@@ -5,6 +5,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="facebook_app_id">1848656012070784</string>
     <string name="action_settings">Logout</string>
-
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="fb_login_protocol_scheme">fb1848656012070784</string>
 </resources>
